@@ -9,7 +9,9 @@ const UserMessage = ({ transcript }) => {
                     <p class="text-sm">{transcript.text}</p>
                 </div>
             </div>
-            <div class="h-10 w-10 flex-shrink-0 rounded-full bg-gray-300"></div>
+            <div class="h-10 w-10 flex-shrink-0 rounded-full bg-gray-500">
+                <p style={{"textAlign": "center", "paddingTop": "0.5em", "color": "white"}}>Me</p>
+            </div>
         </div>
     )
 

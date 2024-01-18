@@ -1,8 +1,6 @@
 # from flask import Flask, request, jsonify
 # from openai import OpenAI
 
-# client = OpenAI(api_key='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')
-
 # app = Flask(__name__)
 
 # @app.route('/chat', methods=['POST'])
@@ -72,11 +70,11 @@ openai.api_key = os.environ.get("OPENAI_API_KEY")
 
 def get_response(question):
   response = openai.ChatCompletion.create(
-    model="gpt-3.5-turbo",
+    model="gpt-4",
     messages=[
       {
         "role": "system",
-        "content": "you are an interviewer for an entry-level software developer position. You should respond in an encouraging, yet slightly analytical manner."
+        "content": "You are an interviewer for an entry-level software developer position. You should respond in a slightly encouraging, yet slightly analytical manner. After asking 5 questions, please provide feedback on my responses and what I can do better for my next interview."
       },
       {
         "role": "user",

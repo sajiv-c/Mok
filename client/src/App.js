@@ -27,12 +27,12 @@ function App() {
   // );
 // console.log(process.env.REACT_APP_OPENAI_API_KEY);
   const OPENAI_API_TOKEN = process.env.REACT_APP_OPENAI_API_KEY
-  // const OPENAI_API_TOKEN = "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"
 
   const [answer, setAnswer] = useState("")
   const [submittedText, setSubmittedText] = useState("")
   const [answers, setAnswers] = useState([])
   const [transcripts, setTranscripts] = useState([])
+  const [responses, setResponses] = useState([])
 
   // const testScript = "Hello, nice to meet you! I come from a background in biology."
 
@@ -71,7 +71,8 @@ function App() {
   // else {
   //   submittedText = ""
   // }
-
+  console.log(transcripts)
+  console.log(answers)
   console.log(submittedText)
 
   function textChange(e) {
@@ -100,6 +101,8 @@ function App() {
         }
       }
       )
+      let newTranscript = submittedText
+      setTranscripts([...transcripts, newTranscript])
   }
 
   // console.log(answer)
@@ -137,8 +140,9 @@ function App() {
     //   <button onClick={() => pauseRecording()}>Pause</button>
     //   <button onClick={() => onFormSubmit()}>Stop</button>
     // </div>
-    <div>
-      <ChatPage transcript={transcript} answer={answer} answers={answers} startRecording={startRecording} pauseRecording={pauseRecording} onFormSubmit={onFormSubmit} onTextSubmit={onTextSubmit} textChange={textChange} />
+    <div style={{"display": "flex", "justifyContent": "center", "paddingTop": "5em"}}>
+      {/* <ChatPage transcript={transcript} transcripts={transcripts} answer={answer} answers={answers} startRecording={startRecording} pauseRecording={pauseRecording} onFormSubmit={onFormSubmit} onTextSubmit={onTextSubmit} textChange={textChange} /> */}
+      <ChatPage transcript={transcript} answer={answer} responses={responses} startRecording={startRecording} pauseRecording={pauseRecording} onFormSubmit={onFormSubmit} onTextSubmit={onTextSubmit} textChange={textChange} />
     </div>
   )
 }
